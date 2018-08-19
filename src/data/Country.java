@@ -26,10 +26,22 @@ public class Country extends Place {
 
     @Override
     public String toString() {
-        return "name: " + this.getName() + ", trip type:" + this.getTripType() +
-                ", nature type:" + this.getNatureType() + ", prefered month:" + this.getPreferedMonth() +
-                ", how much money do we need:" + this.getHowMuchMoney() + ", how important: " + this.getHowImportant() +
-                "capital city: " + this.getCapitalCity();
+        StringBuilder print = new StringBuilder();
+        print.append(getName());
+        print.append(", ");
+        print.append(getTripType());
+        print.append(", ");
+        print.append(getNatureType());
+        print.append(", ");
+        print.append(getPreferedMonth());
+        print.append(", ");
+        print.append(getHowMuchMoney());
+        print.append(", ");
+        print.append(getHowImportant());
+        print.append(", ");
+        print.append(getCapitalCity());
+        print.append(", ");
+        return print.toString();
     }
 
     @Override
