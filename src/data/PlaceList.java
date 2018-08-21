@@ -9,16 +9,40 @@ public class PlaceList {
         places = new Place[MAX_PLACES];
     }
 
-//*************** methods
-    //*********** adding the new place
-    public void addPlace(Place place){
-            if(placesNumber < MAX_PLACES){
-                places[placesNumber] = place;
-                placesNumber++;
-            } else{
-                System.out.println("Max number of places reached");
-            }
+    //getter and setter
+    public static int getMaxPlaces() {
+        return MAX_PLACES;
     }
+
+    public Place[] getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(Place[] places) {
+        this.places = places;
+    }
+
+    public int getPlacesNumber() {
+        return placesNumber;
+    }
+
+    public void setPlacesNumber(int placesNumber) {
+        this.placesNumber = placesNumber;
+    }
+
+    //*************** methods
+    //*********** adding the new place
+    public void addPlace(Place place)throws ArrayIndexOutOfBoundsException{
+        if (placesNumber == MAX_PLACES) {
+            throw new ArrayIndexOutOfBoundsException("MAX PLACES IS" + MAX_PLACES);
+        }
+                if(placesNumber < MAX_PLACES){
+                    places[placesNumber] = place;
+                    placesNumber++;
+                } else{
+                    System.out.println("Max number of places reached");
+                }
+            }
     //*********** adding the new country
     public void addCountry(Country country){
         addPlace(country);
@@ -27,31 +51,6 @@ public class PlaceList {
     public void addCity(City city){
         addPlace(city);
     }
-    //*********** printing the countries
-    public void printCountries(){
-        boolean country = false;
 
-        for (Place c: places) {
-            if (c instanceof Country) {
-                System.out.println(c);
-                country = true;
-            }
-            if (!country)
-                System.out.println("No countries");
-        }
-    }
-    //*********** printing the cities
-    public void printCities(){
-        boolean city = false;
-
-        for (Place c: places) {
-            if (c instanceof City) {
-                System.out.println(c);
-                city = true;
-            }
-        }
-            if (!city)
-                System.out.println("No cities");
-    }
     //***************
 }

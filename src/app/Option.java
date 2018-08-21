@@ -1,5 +1,7 @@
 package app;
 
+import java.util.NoSuchElementException;
+
 public enum Option {
     EXIT(0, "leave the program"),
     ADD_COUNTRY(1, "add the new country"),
@@ -28,7 +30,13 @@ public enum Option {
         return value + " - " + description;
     }
 
-    public static Option createFromInt(int option) {
-        return Option.values()[option];
+    public static Option createFromInt(int option) throws NoSuchElementException {
+        Option result = null;
+        try {
+            result = Option.values()[option];
+        } catch(ArrayIndexOutOfBoundsException e){
+            throw new NoSuchElementException("No element with that ID");
+        }
+        return result;
     }
 }

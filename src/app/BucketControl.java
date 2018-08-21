@@ -5,6 +5,10 @@ import data.City;
 import utils.DataReader;
 import data.Place;
 import data.PlaceList;
+import utils.PlaceUtils;
+
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 
 public class BucketControl {
     //fields to control the program
@@ -29,31 +33,37 @@ public class BucketControl {
 
     //the interaction
     public void controlLoop() {
-        Option option;
-        printOptions();
-        while ((option = Option.createFromInt(dataReader.getInt())) != Option.EXIT) {
-            switch (option) {
-                case ADD_COUNTRY:
-                    addCountry();
-                    break;
-                case PRINT_COUNTRIES:
-                    printCountries();
-                    break;
-                case ADD_CITY:
-                    addCity();
-                    break;
-                case PRINT_CITIES:
-                    printCities();
-                    break;
-                default:
-                    System.out.println("there is no option like this");
+        Option option = null;
+        while (option != Option.EXIT) {
+            try {
+                printOptions();
+                option = Option.createFromInt(dataReader.getInt());
+
+                switch (option) {
+                    case ADD_COUNTRY:
+                        addCountry();
+                        break;
+                    case PRINT_COUNTRIES:
+                        printCountries();
+                        break;
+                    case ADD_CITY:
+                        addCity();
+                        break;
+                    case PRINT_CITIES:
+                        printCities();
+                        break;
+                }
+            } catch (InputMismatchException e){
+                System.out.println("Wrong data");
             }
-            printOptions();
+            catch (NumberFormatException | NoSuchElementException e){
+                System.out.println("No option like this");
+            }
         }
+        dataReader.close();
     }
 
     //methods
-
     private void printOptions() {
         System.out.println("Choose the option:");
         for(Option o: Option.values()) {
@@ -68,7 +78,7 @@ public class BucketControl {
     }
 
     private void printCountries() {
-        placeList.printCountries();
+        PlaceUtils.printCountries(placeList);
     }
 
     //city
@@ -78,7 +88,7 @@ public class BucketControl {
     }
 
     private void printCities() {
-        placeList.printCities();
+        PlaceUtils.printCities(placeList);
     }
 
 }
