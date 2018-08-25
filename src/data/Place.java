@@ -9,20 +9,20 @@ public class Place {
     private int howImportant;
 
 //constructor
-    protected Place(String name, String natureType, String tripType, int preferedMonth, int howMuchMoney, int howImportant) {
-        this.name = name;
-        this.natureType = natureType;
-        this.tripType = tripType;
-        this.preferredMonth = preferedMonth;
-        this.howMuchMoney = howMuchMoney;
-        this.howImportant = howImportant;
+    protected Place(String name, String natureType, String tripType, int preferredMonth, int howMuchMoney, int howImportant) {
+        setName(name);
+        setNatureType(natureType);
+        setTripType(tripType);
+        setPreferedMonth(preferredMonth);
+        setHowMuchMoney(howMuchMoney);
+        setHowImportant(howImportant);
     }
 
     public String getName() {
         return this.name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -46,8 +46,8 @@ public class Place {
         return this.preferredMonth;
     }
 
-    public void setPreferedMonth(int preferedMonth) {
-        this.preferredMonth = preferedMonth;
+    public void setPreferedMonth(int preferredMonth) {
+        this.preferredMonth = preferredMonth;
     }
 
     public int getHowMuchMoney() {

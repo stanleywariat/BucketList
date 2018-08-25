@@ -18,9 +18,9 @@ public class City extends Place {
 
 
     //constructor
-    public City(String name, String natureType, String tripType, int preferedMonth, int howMuchMoney, int howImportant,
+    public City(String name, String natureType, String tripType, int preferredMonth, int howMuchMoney, int howImportant,
                    String whatCountry) {
-        super(name, natureType, tripType, preferedMonth, howMuchMoney, howImportant);
+        super(name, natureType, tripType, preferredMonth, howMuchMoney, howImportant);
         this.setWhatCountry(whatCountry);
     }
 

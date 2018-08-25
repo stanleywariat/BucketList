@@ -5,15 +5,12 @@ public class PlaceList {
     private Place[] places;
     private int placesNumber;
 
+    //***********constructor
     public PlaceList() {
         places = new Place[MAX_PLACES];
     }
 
-    //getter and setter
-    public static int getMaxPlaces() {
-        return MAX_PLACES;
-    }
-
+    //********** getter, setter
     public Place[] getPlaces() {
         return places;
     }
@@ -29,6 +26,8 @@ public class PlaceList {
     public void setPlacesNumber(int placesNumber) {
         this.placesNumber = placesNumber;
     }
+    //***********************************************
+
 
     //*************** methods
     //*********** adding the new place
@@ -43,10 +42,12 @@ public class PlaceList {
                     System.out.println("Max number of places reached");
                 }
             }
+
     //*********** adding the new country
     public void addCountry(Country country){
         addPlace(country);
     }
+
     //*********** adding the new city
     public void addCity(City city){
         addPlace(city);

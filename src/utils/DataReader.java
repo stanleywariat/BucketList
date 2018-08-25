@@ -1,7 +1,6 @@
 package utils;
 
 import data.Country;
-import data.Place;
 import data.City;
 
 import java.util.InputMismatchException;
@@ -20,7 +19,7 @@ public class DataReader {
 
 //************* method taking int number
     public int getInt()throws NumberFormatException{
-        int number = 0;
+        int number;
 
         try {
             number = sc.nextInt();
@@ -43,9 +42,9 @@ public class DataReader {
         System.out.println("What is the capital city");
         String capital = this.sc.nextLine();
 
-        int preferredMonth = 0;
-        int howMuchMoney = 0;
-        int howImportant = 0;
+        int preferredMonth;
+        int howMuchMoney;
+        int howImportant;
 
         try {
             System.out.println("What is the preferred month");
@@ -75,11 +74,10 @@ public class DataReader {
         String tripType = this.sc.nextLine();
         System.out.println("What is the country");
         String country = this.sc.nextLine();
-        System.out.println("Preferred month");
 
-        int preferredMonth = 0;
-        int howMuchMoney = 0;
-        int howImportant = 0;
+        int preferredMonth;
+        int howMuchMoney;
+        int howImportant;
 
         try {
             System.out.println("What is the preferred month");
